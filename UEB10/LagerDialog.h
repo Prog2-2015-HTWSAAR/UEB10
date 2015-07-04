@@ -13,7 +13,7 @@
 #define LAGERDIALOG_H_
 #include "BasisDialog.h"
 #include "Lager.h"
-#include "ctime"
+#include <ctime>
 namespace artikel {
 	enum CreateLagerOption{ EXITCL, SIZENAME, NAME, STANDARD, LAGERAUTOTST };
 	enum ManageLagerOption{ EXITML, CREATEARTIKEL, CREATEARTIKELOHNEBESTAND, EDITARTIKEL, DELETEARTIKEL, ABORT };
@@ -116,6 +116,9 @@ namespace artikel {
 		void artikelEditDialog(Lager* lager);
 
 		void automatischerLagerTest();
+	private:
+		void updateDatum();
+		std::time_t datum;
 	};
 }
 #endif

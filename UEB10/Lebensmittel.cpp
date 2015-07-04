@@ -1,8 +1,9 @@
 #include "Lebensmittel.h"
 
 namespace artikel {
+	const char* Lebensmittel::meldungMHD = "Das Mindesthaltbarkeitsdatum ist bereits abgelaufen!";
 
-	Lebensmittel::Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, std::string bestBeforeDate) throw (ArtikelException)
+	Lebensmittel::Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum bestBeforeDate) throw (ArtikelException)
 		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), bestBeforeDate(bestBeforeDate) {}
 
 	void Lebensmittel::ausgeben(std::ostream& o) const {
@@ -14,7 +15,7 @@ namespace artikel {
 		in >> bestBeforeDate;
 	}
 
-	void Lebensmittel::setBestBeforeDate(std::string bbd) { bestBeforeDate = bbd; }
-	std::string Lebensmittel::getBestBeforeDate() const   { return bestBeforeDate; }
+	void Lebensmittel::setBestBeforeDate(Datum bbd) { bestBeforeDate = bbd; }
+	Datum Lebensmittel::getBestBeforeDate() const   { return bestBeforeDate; }
 
 }

@@ -80,7 +80,9 @@ namespace artikel {
 	/**
 	* @brief Konstructor
 	*/
-	LagerDialog::LagerDialog(){}
+	LagerDialog::LagerDialog(){
+		updateDatum();
+	}
 	/**
 	* @brief Destructor
 	*/
@@ -382,4 +384,8 @@ namespace artikel {
 		}
 		std::cout << "ENDE";
 	}
+	void LagerDialog::updateDatum(){
+		std::time(&datum);
+	}
 }
+
