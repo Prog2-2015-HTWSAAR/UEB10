@@ -11,13 +11,13 @@
 
 */
 #include <iostream>
-
 #include "BasisDialog.h"
-/**
-* @brief Main Function
-*/
-int main(){
-	BasisDialog basisDialog;
-	basisDialog.startDialog();
-	return 0;
-}
+using namespace std;
+	/**
+	* @brief Main Function
+	*/
+	int main(){
+		artikel::BasisDialog basisDialog;
+		basisDialog.startDialog();
+		return 0;
+	}

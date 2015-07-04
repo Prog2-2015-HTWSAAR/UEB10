@@ -1,5 +1,6 @@
 #include "Kleidung.h"
 
+namespace artikel {}
 
 //Kleidung::Kleidung()
 //{

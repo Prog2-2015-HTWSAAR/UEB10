@@ -18,45 +18,46 @@
 #include "Artikeldialog.h"
 #include "Lager.h"
 #include "LagerDialog.h"
-enum BasisOption{EXITB, ARTIKELDIALOG, LAGERDIALOG};
-class BasisDialog
-{
-public:
-	static const char* SEPERATOR;
-	static const char* DIALOGOPTIONONE;
-	static const char* DIALOGOPTIONTWO;
-	static const char* STANDARDEXITOPTION;
-	static const char* STANDARDCHOICEPHRASE;
-	static const char* INPUTERRORPHRASE;
-	static const char* ERRORPHRASE;
+namespace artikel {
+	enum BasisOption{ EXITB, ARTIKELDIALOG, LAGERDIALOG };
+	class BasisDialog
+	{
+	public:
+		static const char* SEPERATOR;
+		static const char* DIALOGOPTIONONE;
+		static const char* DIALOGOPTIONTWO;
+		static const char* STANDARDEXITOPTION;
+		static const char* STANDARDCHOICEPHRASE;
+		static const char* INPUTERRORPHRASE;
+		static const char* ERRORPHRASE;
 
-	/**
-	 * @brief Konstruktor
-	 */
-	BasisDialog();
-	/**
-	 * @brief Dekonstruktor
-	 */
-	~BasisDialog();
-	/**
-	 * @brief Eingabeleerung
-	 * @details Im Falle einer falschen eingabe leert dies den Eingabepuffer.
-	 */
-	void leereEingabe();
-	/**
-	 * @brief Initiiert den ArtikelDialog
-	 */
-	void enterArtikelDialog();
-	/**
-	 * @brief Initiiert den LagerDialog
-	 */
-	void enterLagerDialog();
-	/**
-	 * @brief Initiiert den StartDialog
-	 * @details Auswahl zwischen Artikel- und Lagerdialog
-	 */
-	void startDialog();
+		/**
+		 * @brief Konstruktor
+		 */
+		BasisDialog();
+		/**
+		 * @brief Dekonstruktor
+		 */
+		~BasisDialog();
+		/**
+		 * @brief Eingabeleerung
+		 * @details Im Falle einer falschen eingabe leert dies den Eingabepuffer.
+		 */
+		void leereEingabe();
+		/**
+		 * @brief Initiiert den ArtikelDialog
+		 */
+		void enterArtikelDialog();
+		/**
+		 * @brief Initiiert den LagerDialog
+		 */
+		void enterLagerDialog();
+		/**
+		 * @brief Initiiert den StartDialog
+		 * @details Auswahl zwischen Artikel- und Lagerdialog
+		 */
+		void startDialog();
 
-};
-
+	};
+}
 #endif 
