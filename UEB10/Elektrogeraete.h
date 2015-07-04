@@ -8,11 +8,11 @@ namespace artikel {
 		Elektrogeraete();
 		Elektrogeraete(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double leistung)
 			throw (ArtikelException);
-		~Elektrogeraete();
+	//	~Elektrogeraete();
 		void eingeben(std::istream&);
 		void ausgeben(std::ostream&) const;
-		double getLeistung();
-		void setLeistung(double leistung);
+		double getLeistung() const;
+		void setLeistung(long leist);
 	private:
 		double leistung;
 	};

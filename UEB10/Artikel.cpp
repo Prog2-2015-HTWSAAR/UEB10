@@ -91,6 +91,13 @@ namespace artikel {
 		bestand = neuBestand;
 
 	}
+	void Artikel::setArtikelNr(int neueArtikelnummer)  throw(ArtikelException){
+		if (neueArtikelnummer < 1000 || neueArtikelnummer > 9999){
+			throw ArtikelException(meldungBestand);
+		}
+		artikelNr = neueArtikelnummer;
+
+	}
 	/**
 	* @brief setBezeichnung
 	* @details Funktion zum setzen der Bezeichnung
@@ -136,6 +143,14 @@ namespace artikel {
 			<< ARTIKELPREIS << artikelPreis << "\t"
 			<< BESTAND << bestand;
 		return o.str();
+	}
+
+	void Artikel::ausgeben(std::ostream& o) const {
+		o << artikelNr << ", " << bezeichnung << ", " << artikelPreis << ", " << bestand;
+	}
+
+	void Artikel::eingeben(std::istream& in) {
+		in >> artikelNr >> bezeichnung >> artikelPreis >> bestand;
 	}
 	/**
 	 * @brief <<Operator zur ausgabe in einen stream

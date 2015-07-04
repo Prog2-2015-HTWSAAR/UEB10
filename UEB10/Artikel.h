@@ -74,13 +74,16 @@ namespace artikel {
 		 * @param menge muss positiv sein!
 		 * @throw ArtikelException Falls Vorbedingungen nicht erfuellt sind!
 		 */
-		void bucheAbgang(int menge) throw (ArtikelException);
+ 		void bucheAbgang(int menge) throw (ArtikelException);
 		/**
 		 * @brief setBezeichnung
 		 * @details Funktion zum setzen der Bezeichnung
 		 * @param neuBezeichnung darf nicht leer sein!
 		 * @throw ArtikelException Falls Vorbedingungen nicht erfuellt sind!
 		 */
+
+		void setArtikelNr(int neueArtikelNr) throw (ArtikelException);
+
 		void setBezeichnung(std::string neuBezeichnung) throw (ArtikelException);
 		/**
 		 * @brief setBestand bei Inventur
@@ -134,6 +137,9 @@ namespace artikel {
 		 * @returns Stringrepresentation des Artikel-Objekts
 		 */
 		virtual std::string toString() const;
+		virtual void eingeben(std::istream&);
+		virtual void ausgeben(std::ostream&) const;
+
 		/**
 		 * @brief <<Operator zur ausgabe in einen stream
 		 * @param o Streamreferenz

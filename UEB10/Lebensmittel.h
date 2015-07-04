@@ -8,10 +8,10 @@ namespace artikel {
 		Lebensmittel();
 		Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, std::string bestBeforeDate)
 			throw (ArtikelException);
-		virtual ~Lebensmittel();
+	//	virtual ~Lebensmittel();
 		void eingeben(std::istream&);
 		void ausgeben(std::ostream&) const;
-		void setBestBeforeDate(std::string bestBeforeDate);
+		void setBestBeforeDate(std::string bbd);
 		std::string getBestBeforeDate()    const;
 	private:
 		std::string bestBeforeDate;

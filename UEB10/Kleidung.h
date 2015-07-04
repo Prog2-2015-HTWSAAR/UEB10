@@ -8,13 +8,15 @@ namespace artikel {
 		Kleidung();
 		Kleidung(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double size, std::string colour)
 			throw (ArtikelException);
-		~Kleidung();
+	//	~Kleidung();
 		void eingeben(std::istream&);
 		void ausgeben(std::ostream&) const;
-		double getSize();
-		void setSize(double size);
-		std::string getColour();
-		void setColour(std::string colour);
+
+		void Kleidung::setSize(double newSize);
+		double Kleidung::getSize() const;
+
+		void Kleidung::setColour(std::string newColour);
+		std::string Kleidung::getColour() const;
 	private:
 		double size;
 		std::string colour;
