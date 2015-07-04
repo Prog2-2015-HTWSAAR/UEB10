@@ -43,14 +43,8 @@ std::ostream& operator<< (std::ostream& o, Datum datum){
 
 std::istream& operator>> (std::istream& i, Datum datum){
 	i >> datum.tag;
-	if(datum.tag == 0){
-		i >> datum.tag;
-	}
 	i.ignore(1, '.');
 	i >> datum.monat;
-	if(datum.monat == 0){
-		i >> datum.monat;
-	}
 	i.ignore(1, '.');
 	i >> datum.jahr;
 	return i;
