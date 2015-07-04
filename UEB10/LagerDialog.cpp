@@ -389,30 +389,30 @@ namespace artikel {
 	}
 	int LagerDialog::readIntegerInput(){
 		double number = readDoubleInput();
-		if (!(fmod(number, INPUT_ONE) == ZERO_VALUE)){
-			number = STD_ANSWER_VALUE;
+		if (!(fmod(number, 1) == 0)){
+			number = -1;
 		}
 		return (int)number;
 	}
 	double LagerDialog::readDoubleInput(){
 		double number;
-		if (cin >> number){
+		if (std::cin >> number){
 		}
 		else {
-			number = STD_ANSWER_VALUE;
+			number = -1;
 		}
 		clearInput();
 		return number;
 	}
-	string LagerDialog::readStringInput(){
-		string input;
-		cin >> input;
+	std::string LagerDialog::readStringInput(){
+		std::string input;
+		std::cin >> input;
 		clearInput();
 		return input;
 	}
 	void LagerDialog::clearInput(){
-		cin.clear();
-		cin.ignore(HIGH_VALUE, '\n');
+		std::cin.clear();
+		std::cin.ignore(1000, '\n');
 	}
 }
 

@@ -120,7 +120,7 @@ namespace artikel {
 		double readDoubleInput();
 		void clearInput();
 
-		string readStringInput();
+		std::string readStringInput();
 	private:
 		void updateDatum();
 		std::time_t datum;
