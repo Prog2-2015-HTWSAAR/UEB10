@@ -2,7 +2,7 @@
 #define KLEIDUNG_H
 #include "Artikel.h"
 namespace artikel {
-	class Kleidung : Artikel
+	class Kleidung : public Artikel
 	{
 	public:
 		Kleidung();

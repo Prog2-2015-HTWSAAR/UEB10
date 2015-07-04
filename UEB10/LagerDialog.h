@@ -16,7 +16,7 @@
 #include <ctime>
 namespace artikel {
 	enum CreateLagerOption{ EXITCL, SIZENAME, NAME, STANDARD, LAGERAUTOTST };
-	enum ManageLagerOption{ EXITML, CREATEARTIKEL, CREATEARTIKELOHNEBESTAND, EDITARTIKEL, DELETEARTIKEL, ABORT };
+	enum ManageLagerOption{ EXITML, CREATEARTIKEL, CREATEARTIKELOHNEBESTAND, CREATEELEKTROGERAET, CREATEKLEIDUNG, CREATELEBENSMITTEL,EDITARTIKEL, DELETEARTIKEL, ABORT };
 	enum ManageArtikelOption{ EXITMA, ZUGANGL, ABGANGL, CHANGEPRICES };
 	/**
 	 * @brief Klasse zum Testen der Lager-Klasse
@@ -80,6 +80,9 @@ namespace artikel {
 		static const char* LAGERDIALOGOPTIONTWO;
 		static const char* LAGERDIALOGOPTIONTHREE;
 		static const char* LAGERDIALOGOPTIONFOUR;
+		static const char* LAGERDIALOGOPTIONFIVE;
+		static const char* LAGERDIALOGOPTIONSIX;
+		static const char* LAGERDIALOGOPTIONSEVEN;
 		static const char* LAGERDIALOGOPTIONEXIT;
 		static const char* STANDARDCHOICEPHRASE;
 		static const char* INPUTERRORPHRASE;

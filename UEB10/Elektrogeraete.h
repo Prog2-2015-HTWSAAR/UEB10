@@ -2,7 +2,7 @@
 #define ELEKTROGERAETE_H
 #include "Artikel.h"
 namespace artikel {
-	class Elektrogeraete : public virtual Artikel
+	class Elektrogeraete : public Artikel
 	{
 	public:
 		Elektrogeraete();

@@ -146,7 +146,7 @@ namespace artikel {
 	}
 
 	void Artikel::ausgeben(std::ostream& o) const {
-		o << artikelNr << ", " << bezeichnung << ", " << artikelPreis << ", " << bestand;
+		o << toString();
 	}
 
 	void Artikel::eingeben(std::istream& in) {

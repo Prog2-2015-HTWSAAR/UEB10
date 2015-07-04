@@ -67,8 +67,11 @@ namespace artikel {
 	const char* LagerDialog::STANDARDBACKOPTION = "(0) -BACK-";
 	const char* LagerDialog::LAGERDIALOGOPTIONONE = "(1) Artikel Anlegen";
 	const char* LagerDialog::LAGERDIALOGOPTIONTWO = "(2) Artikel Anlegen ohne Bestand";
-	const char* LagerDialog::LAGERDIALOGOPTIONTHREE = "(3) Artikel Bearbeiten";
-	const char* LagerDialog::LAGERDIALOGOPTIONFOUR = "(4) Artikel Loeschen";
+	const char* LagerDialog::LAGERDIALOGOPTIONTHREE = "(3) Elektrogeraet Anlegen";
+	const char* LagerDialog::LAGERDIALOGOPTIONFOUR = "(4) Kleidung Anlegen";
+	const char* LagerDialog::LAGERDIALOGOPTIONFIVE = "(5) Lebensmittel Anlegen";
+	const char* LagerDialog::LAGERDIALOGOPTIONSIX = "(6) Artikel Bearbeiten";
+	const char* LagerDialog::LAGERDIALOGOPTIONSEVEN = "(7) Artikel Loeschen";
 	const char* LagerDialog::LAGERDIALOGOPTIONEXIT = "(0) Lager Loeschen";
 	const char* LagerDialog::STANDARDCHOICEPHRASE = "Waehlen sie eine Option : ";
 	const char* LagerDialog::INPUTERRORPHRASE = "-> FEHLERHAFTE EINGABE <-";
@@ -152,13 +155,19 @@ namespace artikel {
 		std::string wirklichLoeschen = "n";
 		int artikelNr = 0000;
 		int bestand = 0;
-		double preis;
+		double preis = 0.0;
+		double leistung = 0.0;
+		double groesse = 0.0;
+		std::string farbe;
 		std::string bezeichnung;
+		Datum datum = Datum();
 		do {
 			std::cout << *lager << std::endl;
 			std::cout << SEPERATOR << std::endl << LAGERDIALOGOPTIONONE << std::endl << LAGERDIALOGOPTIONTWO
 				<< std::endl << LAGERDIALOGOPTIONTHREE << std::endl << LAGERDIALOGOPTIONFOUR
-				<< std::endl << LAGERDIALOGOPTIONEXIT << std::endl << std::endl << STANDARDCHOICEPHRASE;
+				<< std::endl << LAGERDIALOGOPTIONFIVE << std::endl << LAGERDIALOGOPTIONSIX
+				<< std::endl << LAGERDIALOGOPTIONSEVEN << std::endl << LAGERDIALOGOPTIONEXIT
+				<< std::endl << std::endl << STANDARDCHOICEPHRASE;
 			std::cin >> answer;
 			leereEingabe();
 			try {
@@ -200,6 +209,66 @@ namespace artikel {
 					leereEingabe();
 					std::cout << std::endl;
 					lager->createArtikel(artikelNr, bezeichnung, preis);
+					break;
+				case CREATEELEKTROGERAET:
+					std::cout << SEPERATORCREATEARTIKEL << std::endl << ARTIKELNUMMER;
+					std::cin >> artikelNr;
+					leereEingabe();
+					std::cout << BEZEICHNUNG;
+					std::cin >> bezeichnung;
+					leereEingabe();
+					std::cout << ARTIKELPREIS;
+					std::cin >> preis;
+					leereEingabe();
+					std::cout << BESTAND;
+					std::cin >> bestand;
+					leereEingabe();
+					std::cout << "Leistung: ";
+					std::cin >> leistung;
+					leereEingabe();
+					std::cout << std::endl;
+					lager->createElektrogeraet(artikelNr, bezeichnung, preis, bestand, leistung);
+					break;
+				case CREATEKLEIDUNG:
+					std::cout << SEPERATORCREATEARTIKEL << std::endl << ARTIKELNUMMER;
+					std::cin >> artikelNr;
+					leereEingabe();
+					std::cout << BEZEICHNUNG;
+					std::cin >> bezeichnung;
+					leereEingabe();
+					std::cout << ARTIKELPREIS;
+					std::cin >> preis;
+					leereEingabe();
+					std::cout << BESTAND;
+					std::cin >> bestand;
+					leereEingabe();
+					std::cout << "Groesse: ";
+					std::cin >> groesse;
+					leereEingabe();
+					std::cout << "Farbe: ";
+					std::cin >> farbe;
+					leereEingabe();
+					std::cout << std::endl;
+					lager->createKleidung(artikelNr, bezeichnung, preis, bestand, groesse, farbe);
+					break;
+				case CREATELEBENSMITTEL:
+					std::cout << SEPERATORCREATEARTIKEL << std::endl << ARTIKELNUMMER;
+					std::cin >> artikelNr;
+					leereEingabe();
+					std::cout << BEZEICHNUNG;
+					std::cin >> bezeichnung;
+					leereEingabe();
+					std::cout << ARTIKELPREIS;
+					std::cin >> preis;
+					leereEingabe();
+					std::cout << BESTAND;
+					std::cin >> bestand;
+					leereEingabe();
+					std::cout << "Mindeshaltbarkeitsdatum: ";
+					std::cin >> datum;
+					leereEingabe();
+					std::cout << std::endl;
+					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum);
 					break;
 				case EDITARTIKEL:
 					artikelEditDialog(lager);

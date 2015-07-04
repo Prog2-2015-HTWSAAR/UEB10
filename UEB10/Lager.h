@@ -12,6 +12,10 @@
 #ifndef LAGER_H_
 #define LAGER_H_
 #include "Artikel.h"
+#include "Datum.h"
+#include "Elektrogeraete.h"
+#include "Kleidung.h"
+#include "Lebensmittel.h"
 namespace artikel {
 	/**
 	 * Standardausnahme fuer logische Fehler in der Lagerklasse
@@ -65,6 +69,12 @@ namespace artikel {
 		 * @param bestand
 		 */
 		void createArtikel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand);
+
+		void createElektrogeraet(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double leistung);
+
+		void createKleidung(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double size, std::string colour);
+
+		void createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum bestBeforeDate);
 		/**
 		 * @brief deleteArtikel Entfernen eines Artikels aus dem Lager
 		 * @param artikelNr

@@ -12,7 +12,7 @@
 namespace artikel {
 class Datum {
 public:
-	Datum(int tag, int monat, int jahr);
+	Datum(int tag = 0, int monat = 0, int jahr = 0);
 	virtual ~Datum();
 	int getTag()const {return tag;}
 	void setTag(int tag){this->tag = tag;}

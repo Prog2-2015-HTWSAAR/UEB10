@@ -3,7 +3,7 @@
 #include "Artikel.h"
 #include "Datum.h"
 namespace artikel {
-	class Lebensmittel : Artikel
+	class Lebensmittel : public Artikel
 	{
 	public:
 		static const char* meldungMHD;

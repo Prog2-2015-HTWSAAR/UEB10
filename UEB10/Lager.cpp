@@ -131,6 +131,51 @@ namespace artikel {
 			throw LagerException(meldungArtNrVorhanden);
 		}
 	}
+
+	void Lager::createElektrogeraet(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double leistung){
+		if (anzArtikel == maxAnzArtikel){
+			throw LagerException(meldungLagerVoll);
+		}
+		int i = findeArtikel(artikelNr);
+		if (i == -1){
+			Elektrogeraete* ap = new Elektrogeraete(artikelNr, bezeichnung, artikelPreis, bestand, leistung);
+			artikelTab[anzArtikel] = ap;
+			anzArtikel++;
+		}
+		else{
+			throw LagerException(meldungArtNrVorhanden);
+		}
+	}
+
+	void Lager::createKleidung(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double size, std::string colour){
+		if (anzArtikel == maxAnzArtikel){
+			throw LagerException(meldungLagerVoll);
+		}
+		int i = findeArtikel(artikelNr);
+		if (i == -1){
+			Kleidung* ap = new Kleidung(artikelNr, bezeichnung, artikelPreis, bestand, size,colour);
+			artikelTab[anzArtikel] = ap;
+			anzArtikel++;
+		}
+		else{
+			throw LagerException(meldungArtNrVorhanden);
+		}
+	}
+
+	void Lager::createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum bestBeforeDate){
+		if (anzArtikel == maxAnzArtikel){
+			throw LagerException(meldungLagerVoll);
+		}
+		int i = findeArtikel(artikelNr);
+		if (i == -1){
+			Lebensmittel* ap = new Lebensmittel (artikelNr, bezeichnung, artikelPreis, bestand, bestBeforeDate);
+			artikelTab[anzArtikel] = ap;
+			anzArtikel++;
+		}
+		else{
+			throw LagerException(meldungArtNrVorhanden);
+		}
+	}
 	/**
 	* @brief deleteArtikel Entfernen eines Artikels aus dem Lager
 	* @param artikelNr
@@ -211,7 +256,8 @@ namespace artikel {
 		std::ostringstream o;
 		o << "Lager: " << name << '\n';
 		for (int i = 0; i < anzArtikel; i++) {
-			o << artikelTab[i]->toString() << '\n';
+			artikelTab[i]->ausgeben(o) ;
+			o << '\n';
 		}
 		o << std::endl;
 		return o.str();
@@ -226,7 +272,8 @@ namespace artikel {
 		o << "Lager: " << lager.name << " ";
 		o << lager.anzArtikel << "/" << lager.maxAnzArtikel << '\n';
 		for (int i = 0; i < lager.anzArtikel; i++) {
-			o << *lager.artikelTab[i] << std::endl;
+			(*lager.artikelTab[i]).ausgeben(o);
+			o  << std::endl;
 		}
 		return o;
 	}
