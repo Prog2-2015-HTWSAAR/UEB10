@@ -387,5 +387,32 @@ namespace artikel {
 	void LagerDialog::updateDatum(){
 		std::time(&datum);
 	}
+	int LagerDialog::readIntegerInput(){
+		double number = readDoubleInput();
+		if (!(fmod(number, INPUT_ONE) == ZERO_VALUE)){
+			number = STD_ANSWER_VALUE;
+		}
+		return (int)number;
+	}
+	double LagerDialog::readDoubleInput(){
+		double number;
+		if (cin >> number){
+		}
+		else {
+			number = STD_ANSWER_VALUE;
+		}
+		clearInput();
+		return number;
+	}
+	string LagerDialog::readStringInput(){
+		string input;
+		cin >> input;
+		clearInput();
+		return input;
+	}
+	void LagerDialog::clearInput(){
+		cin.clear();
+		cin.ignore(HIGH_VALUE, '\n');
+	}
 }
 

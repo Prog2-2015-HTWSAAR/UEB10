@@ -116,6 +116,11 @@ namespace artikel {
 		void artikelEditDialog(Lager* lager);
 
 		void automatischerLagerTest();
+		int readIntegerInput();
+		double readDoubleInput();
+		void clearInput();
+
+		string readStringInput();
 	private:
 		void updateDatum();
 		std::time_t datum;
