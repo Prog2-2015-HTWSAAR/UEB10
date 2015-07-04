@@ -1,7 +1,7 @@
 /**
 * compile: g++ -c -Wall -pedantic *.cpp
-* compile: g++ -o ueb06 *.o
-* @file ueb06.cpp
+* compile: g++ -o ueb10 *.o
+* @file ueb10.cpp
 * @author Andreas Schreiner & Simon Bastian
 *
 * @date 26.05.2015

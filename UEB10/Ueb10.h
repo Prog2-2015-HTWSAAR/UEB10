@@ -2,7 +2,7 @@
 class Ueb10
 {
 public:
-	UEB10();
-	virtual ~UEB10();
+	Ueb10();
+	virtual ~Ueb10();
 };
 

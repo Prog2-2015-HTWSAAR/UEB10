@@ -1,6 +1,6 @@
 #include "Elektrogeraete.h"
 namespace artikel {
-	Elektrogeraete::Elektrogeraete(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double leistung)
+	Elektrogeraete::Elektrogeraete(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double leistung) throw (ArtikelException)
 		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), leistung(leistung) {}
 
 

@@ -1,6 +1,6 @@
 /**
 * compile: g++ -c -Wall -pedantic *.cpp
-* compile: g++ -o ueb06 *.o
+* compile: g++ -o ueb10 *.o
 * @file LagerDialog.h
 * @author Andreas Schreiner & Simon Bastian
 *
@@ -13,6 +13,7 @@
 #define LAGERDIALOG_H_
 #include "BasisDialog.h"
 #include "Lager.h"
+#include "ctime"
 namespace artikel {
 	enum CreateLagerOption{ EXITCL, SIZENAME, NAME, STANDARD, LAGERAUTOTST };
 	enum ManageLagerOption{ EXITML, CREATEARTIKEL, CREATEARTIKELOHNEBESTAND, EDITARTIKEL, DELETEARTIKEL, ABORT };

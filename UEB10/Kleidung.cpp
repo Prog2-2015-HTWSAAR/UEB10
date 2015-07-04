@@ -1,7 +1,7 @@
 #include "Kleidung.h"
 
 namespace artikel {
-	Kleidung::Kleidung(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double size, std::string colour)
+	Kleidung::Kleidung(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double size, std::string colour) throw (ArtikelException)
 		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), size(size), colour(colour){}
 
 	void Kleidung::ausgeben(std::ostream& o) const {

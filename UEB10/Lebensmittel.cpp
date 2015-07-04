@@ -2,7 +2,7 @@
 
 namespace artikel {
 
-	Lebensmittel::Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, std::string bestBeforeDate)
+	Lebensmittel::Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, std::string bestBeforeDate) throw (ArtikelException)
 		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), bestBeforeDate(bestBeforeDate) {}
 
 	void Lebensmittel::ausgeben(std::ostream& o) const {

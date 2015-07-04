@@ -1,6 +1,6 @@
 /**
 * compile: g++ -c -Wall -pedantic *.cpp
-* compile: g++ -o ueb06 *.o
+* compile: g++ -o ueb10 *.o
 * @file Artikel.cpp
 * @author Andreas Schreiner & Simon Bastian
 *
@@ -124,9 +124,9 @@ namespace artikel {
 	 * @param preisaenderung in Prozent (max. 99%)
 	 */
 	void Artikel::aenderePreis(double preisaenderung) throw(ArtikelException){
-		if (abs(preisaenderung) > 100){
+		if (std::abs(preisaenderung) > 100){
 			throw ArtikelException(meldungTooHighChange);
-		}	if (abs(preisaenderung) == 0){
+		}	if (std::abs(preisaenderung) == 0){
 			throw ArtikelException(meldungNullNaN);
 		}
 		artikelPreis *= (1 + (preisaenderung / 100));

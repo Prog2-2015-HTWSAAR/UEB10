@@ -12,11 +12,11 @@ namespace artikel {
 		void eingeben(std::istream&);
 		void ausgeben(std::ostream&) const;
 
-		void Kleidung::setSize(double newSize);
-		double Kleidung::getSize() const;
+		void setSize(double newSize);
+		double getSize() const;
 
-		void Kleidung::setColour(std::string newColour);
-		std::string Kleidung::getColour() const;
+		void setColour(std::string newColour);
+		std::string getColour() const;
 	private:
 		double size;
 		std::string colour;

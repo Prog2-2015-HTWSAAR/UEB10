@@ -1,6 +1,6 @@
 /*
  * compile: g++ -c -Wall -pedantic *.cpp
- * compile: g++ -o ueb06 *.o
+ * compile: g++ -o ueb10 *.o
  * @file Lager.cpp
  *
  * @date 23.05.2015
