@@ -41,7 +41,7 @@ std::ostream& operator<< (std::ostream& o, Datum datum){
 	return o;
 }
 
-std::istream& operator>> (std::istream& i, Datum datum){
+std::istream& operator>> (std::istream& i, Datum& datum){
 	i >> datum.tag;
 	i.ignore(1, '.');
 	i >> datum.monat;
