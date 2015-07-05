@@ -160,7 +160,7 @@ namespace artikel {
 		double groesse = 0.0;
 		std::string farbe;
 		std::string bezeichnung;
-		Datum datum = Datum();
+		Datum datum = Datum(0,0,0);
 		do {
 			std::cout << *lager << std::endl;
 			std::cout << SEPERATOR << std::endl << LAGERDIALOGOPTIONONE << std::endl << LAGERDIALOGOPTIONTWO
@@ -268,6 +268,7 @@ namespace artikel {
 					std::cin >> datum;
 					leereEingabe();
 					std::cout << std::endl;
+					std::cout << datum;
 					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum);
 					break;
 				case EDITARTIKEL:

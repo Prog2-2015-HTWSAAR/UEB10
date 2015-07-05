@@ -6,7 +6,6 @@
  */
 
 #include "Datum.h"
-#include <iostream>
 namespace artikel {
 
 Datum::Datum(int tag, int monat, int jahr) {

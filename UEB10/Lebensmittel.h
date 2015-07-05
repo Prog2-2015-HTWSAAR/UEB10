@@ -8,7 +8,7 @@ namespace artikel {
 	public:
 		static const char* meldungMHD;
 		Lebensmittel();
-		Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum bestBeforeDate)
+		Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate)
 			throw (ArtikelException);
 	//	virtual ~Lebensmittel();
 		void eingeben(std::istream&);

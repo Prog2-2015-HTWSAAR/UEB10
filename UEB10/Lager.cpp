@@ -162,7 +162,7 @@ namespace artikel {
 		}
 	}
 
-	void Lager::createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum bestBeforeDate){
+	void Lager::createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate){
 		if (anzArtikel == maxAnzArtikel){
 			throw LagerException(meldungLagerVoll);
 		}
