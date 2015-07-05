@@ -16,7 +16,7 @@ namespace artikel {
 		void setBestBeforeDate(Datum bbd);
 		Datum getBestBeforeDate()    const;
 	private:
-		Datum bestBeforeDate;
+		Datum& bestBeforeDate;
 	};
 }
 #endif

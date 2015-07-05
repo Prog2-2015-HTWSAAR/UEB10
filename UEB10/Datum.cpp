@@ -6,7 +6,7 @@
  */
 
 #include "Datum.h"
-
+#include <iostream>
 namespace artikel {
 
 Datum::Datum(int tag, int monat, int jahr) {
@@ -36,12 +36,12 @@ std::string Datum::toString() const {
 	o << monat << "." << jahr;
 	return o.str();
 }
-std::ostream& operator<< (std::ostream& o, Datum datum){
+std::ostream& operator<< (std::ostream& o, Datum& datum){
 	o << datum.toString();
 	return o;
 }
 
-std::istream& operator>> (std::istream& i, Datum datum){
+std::istream& operator>> (std::istream& i, Datum& datum){
 	i >> datum.tag;
 	i.ignore(1, '.');
 	i >> datum.monat;
