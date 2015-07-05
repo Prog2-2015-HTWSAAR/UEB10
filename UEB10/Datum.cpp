@@ -18,7 +18,7 @@ Datum::~Datum() {
 	// Nothing to do here!
 }
 
-bool Datum::operator >(Datum datum){
+bool Datum::operator >(Datum& datum){
 	bool ergebnis = (jahr > datum.getJahr() && monat > datum.getMonat() && tag > datum.getTag());
 	return ergebnis;
 }

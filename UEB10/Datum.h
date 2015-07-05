@@ -20,7 +20,7 @@ public:
 	void setMonat(int monat){this->monat = monat;}
 	int getJahr()const {return jahr;}
 	void setJahr(int jahr){this->jahr = jahr;}
-	bool operator>(Datum datum);
+	bool operator>(Datum& datum);
 	friend std::istream& operator>> (std::istream& i, Datum& datum);
 	friend std::ostream& operator<< (std::ostream& o, Datum& datum);
 	std::string toString() const;

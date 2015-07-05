@@ -126,7 +126,7 @@ namespace artikel {
 		std::string readStringInput();
 	private:
 		void updateDatum();
-		std::time_t datum;
+		Datum* datum;
 	};
 }
 #endif

@@ -84,6 +84,7 @@ namespace artikel {
 	* @brief Konstructor
 	*/
 	LagerDialog::LagerDialog(){
+		datum =  new Datum(1,1,2000);
 		updateDatum();
 	}
 	/**
@@ -162,6 +163,7 @@ namespace artikel {
 		std::string bezeichnung;
 		Datum datum = Datum(0,0,0);
 		do {
+			std::cout << "Heutiges Datum: " << *(this->datum) << std::endl;
 			std::cout << *lager << std::endl;
 			std::cout << SEPERATOR << std::endl << LAGERDIALOGOPTIONONE << std::endl << LAGERDIALOGOPTIONTWO
 				<< std::endl << LAGERDIALOGOPTIONTHREE << std::endl << LAGERDIALOGOPTIONFOUR
@@ -268,7 +270,9 @@ namespace artikel {
 					std::cin >> datum;
 					leereEingabe();
 					std::cout << std::endl;
-					std::cout << datum;
+					if(*(this->datum) > datum){
+						throw ArtikelException(Lebensmittel::meldungMHD);
+					}
 					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum);
 					break;
 				case EDITARTIKEL:
@@ -455,7 +459,11 @@ namespace artikel {
 		std::cout << "ENDE";
 	}
 	void LagerDialog::updateDatum(){
-		std::time(&datum);
+		std::time_t time = std::time(NULL);
+		struct tm * now = localtime(&time);
+		datum->setTag(now->tm_mday);
+		datum->setMonat((now->tm_mon)+1);
+		datum->setJahr((now->tm_year)+1900);
 	}
 	int LagerDialog::readIntegerInput(){
 		double number = readDoubleInput();
