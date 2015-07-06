@@ -132,7 +132,7 @@ private:
 	 */
 	bool checkYear(int jahr);
 	/**
-	 * @brieft Prueft ob das Jahr ein Schaltjahr ist
+	 * @brief Prueft ob das Jahr ein Schaltjahr ist
 	 * @param jahr
 	 * @returns true, wenn das Jahr ein Schaltjahr ist
 	 * 			false, sonst
