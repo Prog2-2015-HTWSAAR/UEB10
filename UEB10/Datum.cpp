@@ -7,6 +7,7 @@
 
 #include "Datum.h"
 namespace artikel {
+	const char* meldingBBD = "Das Mindesthaltbarkeitsdatum ist bereits abgelaufen!";
 
 Datum::Datum(int tag, int monat, int jahr) {
 	this->tag = tag;
@@ -48,4 +49,5 @@ std::istream& operator>> (std::istream& i, Datum& datum){
 	i >> datum.jahr;
 	return i;
 }
+
 } /* namespace artikel */

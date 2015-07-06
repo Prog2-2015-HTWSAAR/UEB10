@@ -1,8 +1,16 @@
 #include "Kleidung.h"
 
 namespace artikel {
+	const char* Kleidung::meldungSize = "Die Größeneingabe war Fehlerhaft";
+
 	Kleidung::Kleidung(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double size, std::string colour) throw (ArtikelException)
-		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), size(size), colour(colour){}
+		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), size(size), colour(colour){
+		if (size < 0){
+			throw ArtikelException(meldungSize);
+		}
+	}
+
+
 
 	void Kleidung::ausgeben(std::ostream& o) const {
 		Artikel::ausgeben(o);

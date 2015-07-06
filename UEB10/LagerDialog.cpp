@@ -103,8 +103,7 @@ namespace artikel {
 			std::cout << SEPERATOR << std::endl << DIALOGOPTIONONE << std::endl << DIALOGOPTIONTWO
 				<< std::endl << DIALOGOPTIONTHREE << std::endl << DIALOGOPTIONFOUR << std::endl << STANDARDEXITOPTION << std::endl
 				<< std::endl << STANDARDCHOICEPHRASE;
-			std::cin >> answer;
-			leereEingabe();
+			answer = readIntegerInput();
 			try {
 				switch (answer){
 				case EXITCL:
@@ -170,8 +169,7 @@ namespace artikel {
 				<< std::endl << LAGERDIALOGOPTIONFIVE << std::endl << LAGERDIALOGOPTIONSIX
 				<< std::endl << LAGERDIALOGOPTIONSEVEN << std::endl << LAGERDIALOGOPTIONEXIT
 				<< std::endl << std::endl << STANDARDCHOICEPHRASE;
-			std::cin >> answer;
-			leereEingabe();
+			answer = readIntegerInput();
 			try {
 				switch (answer){
 				case EXITML:
@@ -226,8 +224,7 @@ namespace artikel {
 					std::cin >> bestand;
 					leereEingabe();
 					std::cout << "Leistung: ";
-					std::cin >> leistung;
-					leereEingabe();
+					leistung = readDoubleInput();
 					std::cout << std::endl;
 					lager->createElektrogeraet(artikelNr, bezeichnung, preis, bestand, leistung);
 					break;
@@ -245,8 +242,7 @@ namespace artikel {
 					std::cin >> bestand;
 					leereEingabe();
 					std::cout << "Groesse: ";
-					std::cin >> groesse;
-					leereEingabe();
+					groesse = readDoubleInput();
 					std::cout << "Farbe: ";
 					std::cin >> farbe;
 					leereEingabe();

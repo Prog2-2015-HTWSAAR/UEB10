@@ -39,11 +39,20 @@ namespace artikel {
 		 * @brief Dekonstruktor
 		 */
 		~BasisDialog();
+		int readIntegerInput();
 		/**
-		 * @brief Eingabeleerung
-		 * @details Im Falle einer falschen eingabe leert dies den Eingabepuffer.
-		 */
-		void leereEingabe();
+		* @brief readDoubleInput Einlese fkt fuer double
+		*/
+		double readDoubleInput();
+		/**
+		* @brief clearInput Eingabeleerung
+		* @details Im Falle einer falschen eingabe leer dies den Eingabepuffer.
+		*/
+		void clearInput();
+		/**
+		* @brief readStringInput Einlese fkt fuer string
+		*/
+		std::string readStringInput();
 		/**
 		 * @brief Initiiert den ArtikelDialog
 		 */

@@ -117,12 +117,26 @@ namespace artikel {
 		* @param lager
 		*/
 		void artikelEditDialog(Lager* lager);
-
+		/**
+		* @brief automatischerLagerTest
+		*/
 		void automatischerLagerTest();
+		/**
+		* @brief readDoubleInput Einlese fkt fuer integer
+		*/
 		int readIntegerInput();
+		/**
+		* @brief readDoubleInput Einlese fkt fuer double
+		*/
 		double readDoubleInput();
+		/**
+		* @brief clearInput Eingabeleerung
+		* @details Im Falle einer falschen eingabe leer dies den Eingabepuffer.
+		*/
 		void clearInput();
-
+		/**
+		* @brief readStringInput Einlese fkt fuer string
+		*/
 		std::string readStringInput();
 	private:
 		void updateDatum();

@@ -1,7 +1,13 @@
 #include "Elektrogeraete.h"
 namespace artikel {
+	const char* Elektrogeraete::meldungLeistung = "Die Leistungseingabe war Fehlerhaft";
+
 	Elektrogeraete::Elektrogeraete(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double leistung) throw (ArtikelException)
-		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), leistung(leistung) {}
+		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), leistung(leistung) {
+		if (leistung < 0){
+			throw ArtikelException(meldungLeistung);
+		}
+	}
 
 
 	void Elektrogeraete::ausgeben(std::ostream& o) const {

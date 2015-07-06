@@ -6,3 +6,14 @@
 *.sln
 UEB10.opensdf
 UEB10/LagerDialog.cpp~RFc49bb01.TMP
+*.o
+UEB10/Artikel.o
+UEB10/Artikeldialog.o
+UEB10/BasisDialog.o
+UEB10/Datum.o
+UEB10/Elektrogeraete.o
+UEB10/Kleidung.o
+UEB10/Lager.o
+UEB10/LagerDialog.o
+UEB10/Lebensmittel.o
+UEB10/Ueb10.o

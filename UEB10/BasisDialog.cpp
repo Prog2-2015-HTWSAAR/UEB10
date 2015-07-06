@@ -41,8 +41,7 @@ namespace artikel {
 				std::cout << std::endl << SEPERATOR << std::endl << DIALOGOPTIONONE << std::endl
 					<< DIALOGOPTIONTWO << std::endl << STANDARDEXITOPTION << std::endl
 					<< std::endl << STANDARDCHOICEPHRASE;
-				std::cin >> answer;
-				leereEingabe();
+				answer = readIntegerInput();
 				switch (answer) {
 				case EXITB:
 					break;
@@ -63,13 +62,37 @@ namespace artikel {
 
 		} while (answer != EXITB);
 	}
+
+	int BasisDialog::readIntegerInput(){
+		double number = readDoubleInput();
+		if (!(fmod(number, 1) == 0)){
+			number = -1;
+		}
+		return (int)number;
+	}
+	double BasisDialog::readDoubleInput(){
+		double number;
+		if (std::cin >> number){
+		}
+		else {
+			number = -1;
+		}
+		clearInput();
+		return number;
+	}
+	std::string BasisDialog::readStringInput(){
+		std::string input;
+		std::cin >> input;
+		clearInput();
+		return input;
+	}
 	/**
-	 * @brief Eingabeleerung
-	 * @details Im Falle einer falschen Eingabe leert dies den Eingabepuffer.
-	 */
-	void BasisDialog::leereEingabe(){
+	* @brief Eingabeleerung
+	* @details Im Falle einer falschen Eingabe leert dies den Eingabepuffer.
+	*/
+	void BasisDialog::clearInput(){
 		std::cin.clear();
-		std::cin.ignore(BIGNUMBER, '\n');
+		std::cin.ignore(1000, '\n');
 	}
 	/**
 	 * @brief Initiiert den ArtikelDialog
