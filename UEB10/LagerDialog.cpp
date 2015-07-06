@@ -349,8 +349,14 @@ namespace artikel {
 					std::cout << INPUTERRORPHRASE << std::endl;
 				}
 			}
-			catch (const char* e) {
-				std::cout << ERRORPHRASE << e << std::endl;
+			catch (DatumException& e) {
+				std::cout << ERRORPHRASE << e.what() << std::endl;
+			}
+			catch (LagerException& e) {
+				std::cout << ERRORPHRASE << e.what() << std::endl;
+			}
+			catch (ArtikelException& e) {
+				std::cout << ERRORPHRASE << e.what() << std::endl;
 			}
 		} while (answer != 0);
 	}

@@ -9,7 +9,7 @@
 namespace artikel {
 const char* Datum::meldungTag = "Ungueltiger Tag!";
 const char* Datum::meldungMonat = "Ungueltiger Monat!";
-const char* Datum::meldungJahr = "Ungueltiges Jahr!";
+const char* Datum::meldungJahr = "Ungueltiges Jahr! (<1900)";
 
 Datum::Datum(int tag, int monat, int jahr) throw (DatumException){
 	checkDate(tag, monat, jahr);
@@ -23,6 +23,18 @@ Datum::~Datum() {
 	// Nothing to do here!
 }
 
+void Datum::setJahr(int jahr){
+	checkYear(jahr);
+	this->jahr = jahr;
+}
+void Datum::setMonat(int monat){
+	checkMonth(monat);
+	this->monat = monat;
+}
+void Datum::setTag(int tag){
+	checkDay(tag, monat, jahr);
+	this->tag = tag;
+}
 Datum* Datum::calcCurrentDate(){
 	int tag = 0;
 	int monat = 0;
@@ -100,13 +112,26 @@ bool Datum::checkYear(int jahr){
 bool Datum::checkMonth(int monat){
 	return (monat > 0 && monat < 13);
 }
-bool Datum::checkDay(int tag, int monat){
+bool Datum::checkDay(int tag, int monat, int jahr){
 	if(tag < 1 || tag >31){
 		return false;
 	}
 	if(monat < 8){
 		if(tag > 30){
 			return (monat % 2 == 0);
+		}
+		if(leapYear(jahr)){
+			if(monat == 2){
+				if(tag > 29){
+					return false;
+				}
+			}
+		}else{
+			if(monat == 2){
+				if(tag > 28){
+					return false;
+				}
+			}
 		}
 	} else {
 		if(tag > 30){
@@ -116,6 +141,18 @@ bool Datum::checkDay(int tag, int monat){
 	return true;
 }
 
+bool Datum::leapYear(int jahr){
+	if(jahr % 400 == 0){
+		return true;
+	}
+	if(jahr % 100 == 0){
+		return false;
+	}
+	if(jahr % 4 == 0){
+		return true;
+	}
+	return false;
+}
 void Datum::checkDate(int tag, int monat, int jahr) throw (DatumException){
 	if(!checkYear(jahr)){
 		throw DatumException(meldungJahr);
@@ -123,7 +160,7 @@ void Datum::checkDate(int tag, int monat, int jahr) throw (DatumException){
 	if(!checkMonth(monat)){
 		throw DatumException(meldungMonat);
 	}
-	if(!checkDay(tag, monat)){
+	if(!checkDay(tag, monat, jahr)){
 		throw DatumException(meldungTag);
 	}
 }

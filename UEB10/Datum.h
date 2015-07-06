@@ -26,11 +26,11 @@ public:
 	Datum(int tag, int monat, int jahr)throw (DatumException);
 	virtual ~Datum();
 	int getTag()const {return tag;}
-	void setTag(int tag){this->tag = tag;}
+	void setTag(int tag);
 	int getMonat()const {return monat;}
-	void setMonat(int monat){this->monat = monat;}
+	void setMonat(int monat);
 	int getJahr()const {return jahr;}
-	void setJahr(int jahr){this->jahr = jahr;}
+	void setJahr(int jahr);
 	friend int dateCMP(Datum& datumA, Datum& datumB);
 	friend std::istream& operator>> (std::istream& i, Datum& datum)
 		throw (DatumException);
@@ -39,9 +39,10 @@ public:
 	std::string toString() const;
 private:
 	void checkDate(int tag, int monat, int jahr) throw (DatumException);
-	bool checkDay(int tag, int monat);
+	bool checkDay(int tag, int monat, int jahr);
 	bool checkMonth(int monat);
 	bool checkYear(int jahr);
+	bool leapYear(int jahr);
 	int tag;
 	int monat;
 	int jahr;
