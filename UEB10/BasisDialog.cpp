@@ -105,7 +105,9 @@ namespace artikel {
 	 * @brief Initiiert den LagerDialog
 	 */
 	void BasisDialog::enterLagerDialog(){
+		std::cout << "enter" << std::endl;
 		LagerDialog lagerDialog;
+		std::cout << "constructor" << std::endl;
 		lagerDialog.createLagerDialog();
 	}
 }

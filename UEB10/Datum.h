@@ -7,12 +7,23 @@
 
 #ifndef DATUM_H_
 #define DATUM_H_
+#include <ctime>
 #include <string>
 #include <sstream>
+#include <stdexcept>
 namespace artikel {
+
+class DatumException : public std::logic_error {
+public:
+	DatumException(const std::string& msg = "") : logic_error(msg) {}
+};
+
 class Datum {
 public:
-	Datum(int tag, int monat, int jahr);
+	static const char* meldungTag;
+	static const char* meldungMonat;
+	static const char* meldungJahr;
+	Datum(int tag, int monat, int jahr)throw (DatumException);
 	virtual ~Datum();
 	int getTag()const {return tag;}
 	void setTag(int tag){this->tag = tag;}
@@ -20,13 +31,17 @@ public:
 	void setMonat(int monat){this->monat = monat;}
 	int getJahr()const {return jahr;}
 	void setJahr(int jahr){this->jahr = jahr;}
-	bool operator>(Datum& datum);
 	friend int dateCMP(Datum& datumA, Datum& datumB);
-	friend std::istream& operator>> (std::istream& i, Datum& datum);
+	friend std::istream& operator>> (std::istream& i, Datum& datum)
+		throw (DatumException);
 	friend std::ostream& operator<< (std::ostream& o, Datum& datum);
+	static Datum* calcCurrentDate();
 	std::string toString() const;
-	void loadActualDate();
 private:
+	void checkDate(int tag, int monat, int jahr) throw (DatumException);
+	bool checkDay(int tag, int monat);
+	bool checkMonth(int monat);
+	bool checkYear(int jahr);
 	int tag;
 	int monat;
 	int jahr;

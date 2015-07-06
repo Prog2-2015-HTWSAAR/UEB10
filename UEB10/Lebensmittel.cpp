@@ -3,9 +3,9 @@
 namespace artikel {
 	const char* Lebensmittel::meldungMHD = "Das Mindesthaltbarkeitsdatum ist bereits abgelaufen!";
 
-	Lebensmittel::Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate, Datum& aktuellesDatum) throw (ArtikelException)
+	Lebensmittel::Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate) throw (ArtikelException)
 		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), bestBeforeDate(bestBeforeDate) {
-		if (dateCMP(bestBeforeDate, aktuellesDatum) <= 0) {
+		if (dateCMP(bestBeforeDate, *(Datum::calcCurrentDate())) <= 0) {
 			throw ArtikelException(meldungMHD);
 		}
 	}

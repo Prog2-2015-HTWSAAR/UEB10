@@ -13,7 +13,6 @@
 #define LAGERDIALOG_H_
 #include "BasisDialog.h"
 #include "Lager.h"
-#include <ctime>
 namespace artikel {
 	enum CreateLagerOption{ EXITCL, SIZENAME, NAME, STANDARD, LAGERAUTOTST };
 	enum ManageLagerOption{ EXITML, CREATEARTIKEL, CREATEARTIKELOHNEBESTAND, CREATEELEKTROGERAET, CREATEKLEIDUNG, CREATELEBENSMITTEL,EDITARTIKEL, DELETEARTIKEL, ABORT };
@@ -139,7 +138,6 @@ namespace artikel {
 		*/
 		std::string readStringInput();
 	private:
-		void updateDatum();
 		Datum* aktuellesDatum;
 	};
 }

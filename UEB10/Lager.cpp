@@ -162,13 +162,13 @@ namespace artikel {
 		}
 	}
 
-	void Lager::createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate, Datum& aktuellesDatum){
+	void Lager::createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate){
 		if (anzArtikel == maxAnzArtikel){
 			throw LagerException(meldungLagerVoll);
 		}
 		int i = findeArtikel(artikelNr);
 		if (i == -1){
-			Lebensmittel* ap = new Lebensmittel(artikelNr, bezeichnung, artikelPreis, bestand, bestBeforeDate, aktuellesDatum);
+			Lebensmittel* ap = new Lebensmittel(artikelNr, bezeichnung, artikelPreis, bestand, bestBeforeDate);
 			artikelTab[anzArtikel] = ap;
 			anzArtikel++;
 		}

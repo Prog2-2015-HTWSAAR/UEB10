@@ -84,8 +84,7 @@ namespace artikel {
 	* @brief Konstructor
 	*/
 	LagerDialog::LagerDialog(){
-		aktuellesDatum = new Datum(1, 1, 2000);
-		updateDatum();
+		aktuellesDatum = Datum::calcCurrentDate();
 	}
 	/**
 	* @brief Destructor
@@ -160,7 +159,7 @@ namespace artikel {
 		double groesse = 0.0;
 		std::string farbe;
 		std::string bezeichnung;
-		Datum datum = Datum(0,0,0);
+		Datum datum = Datum(1,1,1900);
 		do {
 			std::cout << "Heutiges Datum: " << *aktuellesDatum << std::endl;
 			std::cout << *lager << std::endl;
@@ -266,7 +265,7 @@ namespace artikel {
 					std::cin >> datum;
 					leereEingabe();
 					std::cout << std::endl;
-					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum, *aktuellesDatum);
+					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum);
 					break;
 				case EDITARTIKEL:
 					artikelEditDialog(lager);
@@ -289,6 +288,9 @@ namespace artikel {
 					std::cout << INPUTERRORPHRASE << std::endl;
 				}
 
+			}
+			catch (DatumException& e) {
+				std::cout << ERRORPHRASE << e.what() << std::endl;
 			}
 			catch (LagerException& e) {
 				std::cout << ERRORPHRASE << e.what() << std::endl;
@@ -451,13 +453,7 @@ namespace artikel {
 		}
 		std::cout << "ENDE";
 	}
-	void LagerDialog::updateDatum(){
-		std::time_t time = std::time(NULL);
-		struct tm * now = localtime(&time);
-		aktuellesDatum->setTag(now->tm_mday);
-		aktuellesDatum->setMonat((now->tm_mon) + 1);
-		aktuellesDatum->setJahr((now->tm_year) + 1900);
-	}
+
 	int LagerDialog::readIntegerInput(){
 		double number = readDoubleInput();
 		if (!(fmod(number, 1) == 0)){

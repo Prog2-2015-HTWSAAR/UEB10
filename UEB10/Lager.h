@@ -74,7 +74,7 @@ namespace artikel {
 
 		void createKleidung(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, double size, std::string colour);
 
-		void createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate, Datum& aktuellesDatum);
+		void createLebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate);
 		/**
 		 * @brief deleteArtikel Entfernen eines Artikels aus dem Lager
 		 * @param artikelNr

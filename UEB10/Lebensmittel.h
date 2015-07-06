@@ -19,7 +19,7 @@ namespace artikel {
 		* @param bestand Bestand
 		* @param bestBeforeDate MHD
 		*/
-		Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate, Datum& aktuellesDatum)
+		Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate)
 			throw (ArtikelException);
 	//	virtual ~Lebensmittel();
 		/**
