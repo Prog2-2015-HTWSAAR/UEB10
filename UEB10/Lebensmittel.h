@@ -19,7 +19,7 @@ namespace artikel {
 		* @param bestand Bestand
 		* @param bestBeforeDate MHD
 		*/
-		Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate)
+		Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate, Datum& aktuellesDatum)
 			throw (ArtikelException);
 	//	virtual ~Lebensmittel();
 		/**
@@ -41,6 +41,7 @@ namespace artikel {
 		* @brief getBestBeforeDate get fkt bbd
 		*/
 		Datum getBestBeforeDate()    const;
+		Datum updateDatum();
 	private:
 		/**
 		* @brief bestBeforeDate Datumsobj 

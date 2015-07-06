@@ -140,7 +140,7 @@ namespace artikel {
 		std::string readStringInput();
 	private:
 		void updateDatum();
-		Datum* datum;
+		Datum* aktuellesDatum;
 	};
 }
 #endif

@@ -4,7 +4,7 @@
  *  Created on: 04.07.2015
  *      Author: Simon
  */
-
+#include <ctime>
 #include "Datum.h"
 namespace artikel {
 	const char* meldingBBD = "Das Mindesthaltbarkeitsdatum ist bereits abgelaufen!";
@@ -36,6 +36,28 @@ std::string Datum::toString() const {
 	o << monat << "." << jahr;
 	return o.str();
 }
+int dateCMP(Datum& datumA, Datum& datumB){
+	int cmp = 0;
+	if (datumA.tag > datumB.tag){
+		cmp++;
+	}
+	if (datumA.tag < datumB.tag){
+		cmp--;
+	}
+	if (datumA.monat > datumB.monat){
+		cmp = cmp + 10;
+	}
+	if (datumA.monat < datumB.monat){
+		cmp = cmp - 10;
+	}
+	if (datumA.jahr > datumB.jahr){
+		cmp = cmp + 100;
+	}
+	if (datumA.jahr < datumB.jahr){
+		cmp = cmp - 100;
+	}
+	return cmp;
+}
 std::ostream& operator<< (std::ostream& o, Datum& datum){
 	o << datum.toString();
 	return o;
@@ -49,5 +71,4 @@ std::istream& operator>> (std::istream& i, Datum& datum){
 	i >> datum.jahr;
 	return i;
 }
-
 } /* namespace artikel */

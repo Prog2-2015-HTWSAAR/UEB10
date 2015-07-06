@@ -21,9 +21,11 @@ public:
 	int getJahr()const {return jahr;}
 	void setJahr(int jahr){this->jahr = jahr;}
 	bool operator>(Datum& datum);
+	friend int dateCMP(Datum& datumA, Datum& datumB);
 	friend std::istream& operator>> (std::istream& i, Datum& datum);
 	friend std::ostream& operator<< (std::ostream& o, Datum& datum);
 	std::string toString() const;
+	void loadActualDate();
 private:
 	int tag;
 	int monat;
