@@ -266,7 +266,7 @@ namespace artikel {
 					std::cin >> datum;
 					leereEingabe();
 					std::cout << std::endl;
-					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum, aktuellesDatum);
+					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum, *aktuellesDatum);
 					break;
 				case EDITARTIKEL:
 					artikelEditDialog(lager);
