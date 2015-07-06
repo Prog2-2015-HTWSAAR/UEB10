@@ -97,6 +97,9 @@ std::istream& operator>> (std::istream& i, Datum& datum)throw (DatumException){
 	i >> monat;
 	i.ignore(1, '.');
 	i >> jahr;
+	if(jahr < 100){ //assume 20xx
+		jahr += 2000;
+	}
 	datum.checkDate(tag, monat, jahr);
 	datum.setTag(tag);
 	datum.setMonat(monat);
