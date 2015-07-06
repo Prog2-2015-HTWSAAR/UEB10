@@ -159,8 +159,9 @@ namespace artikel {
 		double groesse = 0.0;
 		std::string farbe;
 		std::string bezeichnung;
-		Datum datum = Datum(1,1,1900);
+		Datum* datum = NULL;
 		do {
+			datum = new Datum(1,1,1900);
 			std::cout << "Heutiges Datum: " << *aktuellesDatum << std::endl;
 			std::cout << *lager << std::endl;
 			std::cout << SEPERATOR << std::endl << LAGERDIALOGOPTIONONE << std::endl << LAGERDIALOGOPTIONTWO
@@ -262,10 +263,10 @@ namespace artikel {
 					std::cin >> bestand;
 					leereEingabe();
 					std::cout << "Mindeshaltbarkeitsdatum: ";
-					std::cin >> datum;
+					std::cin >> *datum;
 					leereEingabe();
 					std::cout << std::endl;
-					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, datum);
+					lager->createLebensmittel(artikelNr, bezeichnung, preis, bestand, *datum);
 					break;
 				case EDITARTIKEL:
 					artikelEditDialog(lager);
@@ -298,6 +299,7 @@ namespace artikel {
 			catch (ArtikelException& e) {
 				std::cout << ERRORPHRASE << e.what() << std::endl;
 			}
+			 // neues Datum-Objekt
 		} while (answer != EXITML);
 
 	}
