@@ -71,7 +71,7 @@ namespace artikel {
 		if (this == &lager)
 			return *this;
 
-		// bisherige Konto-Objekte destruieren
+		// bisherige Artikel-Objekte destruieren
 		loescheAlleArtikel();
 		delete[] artikelTab;
 		// Attribute uebertragen und das Array anlegen
@@ -80,7 +80,7 @@ namespace artikel {
 		artikelTab = new Artikel*[maxAnzArtikel];
 		anzArtikel = lager.anzArtikel;
 
-		// vorhandene Konten kopieren
+		// vorhandene Artikel kopieren
 		for (int i = 0; i < anzArtikel; i++) {
 			Artikel* tmp = lager.artikelTab[i];
 			artikelTab[i] = new Artikel(*tmp);
@@ -184,7 +184,7 @@ namespace artikel {
 		int i = findeArtikel(artikelNr);
 		if (i >= 0){
 			delete artikelTab[i];
-			// letztes Konto an die Stelle i setzen
+			// letzte Artikel an die Stelle i setzen
 			if (i != anzArtikel - 1){
 				artikelTab[i] = artikelTab[anzArtikel - 1];
 			}
