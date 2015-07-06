@@ -5,7 +5,7 @@ namespace artikel {
 
 	Lebensmittel::Lebensmittel(int artikelNr, std::string bezeichnung, double artikelPreis, int bestand, Datum& bestBeforeDate, Datum& aktuellesDatum) throw (ArtikelException)
 		: Artikel(artikelNr, bezeichnung, artikelPreis, bestand), bestBeforeDate(bestBeforeDate) {
-		if (dateCMP(bestBeforeDate, aktuellesDatum) > 0) {
+		if (dateCMP(bestBeforeDate, aktuellesDatum) <= 0) {
 			throw ArtikelException(meldungMHD);
 		}
 	}

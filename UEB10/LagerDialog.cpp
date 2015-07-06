@@ -162,7 +162,7 @@ namespace artikel {
 		std::string bezeichnung;
 		Datum datum = Datum(0,0,0);
 		do {
-			std::cout << "Heutiges Datum: " << aktuellesDatum << std::endl;
+			std::cout << "Heutiges Datum: " << *aktuellesDatum << std::endl;
 			std::cout << *lager << std::endl;
 			std::cout << SEPERATOR << std::endl << LAGERDIALOGOPTIONONE << std::endl << LAGERDIALOGOPTIONTWO
 				<< std::endl << LAGERDIALOGOPTIONTHREE << std::endl << LAGERDIALOGOPTIONFOUR
