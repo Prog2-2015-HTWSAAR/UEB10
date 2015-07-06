@@ -25,12 +25,12 @@ namespace artikel {
 	//	~Kleidung();
 		/**
 		* @brief eingeben Eingabefunktion
-		* @param istream& istream Referenz
+		* @param in istream Referenz
 		*/
 		void eingeben(std::istream&);
 		/**
 		* @brief ausgeben Ausgabefunkion
-		* @param ostream& ostream Referenz
+		* @param o ostream Referenz
 		*/
 		void ausgeben(std::ostream&) const;
 		/**

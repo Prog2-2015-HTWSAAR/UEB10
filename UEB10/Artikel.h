@@ -76,14 +76,18 @@ namespace artikel {
 		 */
  		void bucheAbgang(int menge) throw (ArtikelException);
 		/**
+		 * @brief setArtikelNr
+		 * @details Funktion zum setzen der ArtikelNr
+		 * @param neueArtikelNr muss vierstellig sein!
+		 * @throw ArtikelException Falls Vorbedingungen nicht erfuellt sind!
+		 */
+		void setArtikelNr(int neueArtikelNr) throw (ArtikelException);
+		/**
 		 * @brief setBezeichnung
 		 * @details Funktion zum setzen der Bezeichnung
 		 * @param neuBezeichnung darf nicht leer sein!
 		 * @throw ArtikelException Falls Vorbedingungen nicht erfuellt sind!
 		 */
-
-		void setArtikelNr(int neueArtikelNr) throw (ArtikelException);
-
 		void setBezeichnung(std::string neuBezeichnung) throw (ArtikelException);
 		/**
 		 * @brief setBestand bei Inventur

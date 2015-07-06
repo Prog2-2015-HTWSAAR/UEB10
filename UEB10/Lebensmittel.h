@@ -24,12 +24,12 @@ namespace artikel {
 	//	virtual ~Lebensmittel();
 		/**
 		* @brief eingeben Eingabefunktion
-		* @param istream& istream Referenz
+		* @param in istream Referenz
 		*/
 		void eingeben(std::istream&);
 		/**
 		* @brief ausgeben Ausgabefunktion
-		* @param ostream& ostream Referenz
+		* @param o ostream Referenz
 		*/
 		void ausgeben(std::ostream&) const;
 		/**
